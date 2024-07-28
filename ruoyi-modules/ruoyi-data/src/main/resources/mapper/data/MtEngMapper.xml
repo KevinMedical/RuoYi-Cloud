@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.data.mapper.MtEngMapper">
+
+    <resultMap type="MtEng" id="MtEngResult">
+        <result property="id" column="id"/>
+        <result property="approvalCode" column="approval_code"/>
+        <result property="approvalNumber1" column="approval_number1"/>
+        <result property="approvalNumberOriginal" column="approval_number_original"/>
+        <result property="approvalNumber" column="approval_number"/>
+        <result property="brand" column="brand"/>
+        <result property="categoryList" column="category_list"/>
+        <result property="categoryNamePath" column="category_name_path"/>
+        <result property="coldChainType" column="cold_chain_type"/>
+        <result property="currentPrice" column="current_price"/>
+        <result property="dosage" column="dosage"/>
+        <result property="enabledStatus" column="enabledStatus"/>
+        <result property="factor" column="factor"/>
+        <result property="genericName" column="generic_name"/>
+        <result property="goodsName" column="goods_name"/>
+        <result property="goodsStandardCode" column="goods_standard_code"/>
+        <result property="isColdChain" column="is_cold_chain"/>
+        <result property="isSale" column="is_sale"/>
+        <result property="isSp" column="is_sp"/>
+        <result property="manufaturer1" column="manufaturer1"/>
+        <result property="manufaturer" column="manufaturer"/>
+        <result property="materialName" column="material_name"/>
+        <result property="minUnit" column="min_unit"/>
+        <result property="mtid" column="mtid"/>
+        <result property="oct" column="oct"/>
+        <result property="originalPrice" column="original_price"/>
+        <result property="outlookDesc" column="outlook_desc"/>
+        <result property="outlookNumber" column="outlook_number"/>
+        <result property="outlookUnit" column="outlook_unit"/>
+        <result property="outlook" column="outlook"/>
+        <result property="picList" column="pic_list"/>
+        <result property="pics" column="pics"/>
+        <result property="pictureList" column="picture_list"/>
+        <result property="spec1" column="spec1"/>
+        <result property="spec" column="spec"/>
+        <result property="stdName" column="std_name"/>
+        <result property="suggestedPrice" column="suggested_price"/>
+        <result property="suppliersId" column="suppliers_id"/>
+        <result property="unit1" column="unit1"/>
+        <result property="unit" column="unit"/>
+        <result property="upc" column="upc"/>
+        <result property="mtClassId" column="mt_class_id"/>
+    </resultMap>
+
+    <sql id="selectMtEngVo">
+        select id,
+               approval_code,
+               approval_number1,
+               approval_number_original,
+               approval_number,
+               brand,
+               category_list,
+               category_name_path,
+               cold_chain_type,
+               current_price,
+               dosage,
+               enabledStatus,
+               factor,
+               generic_name,
+               goods_name,
+               goods_standard_code,
+               is_cold_chain,
+               is_sale,
+               is_sp,
+               manufaturer1,
+               manufaturer,
+               material_name,
+               min_unit,
+               mtid,
+               oct,
+               original_price,
+               outlook_desc,
+               outlook_number,
+               outlook_unit,
+               outlook,
+               pic_list,
+               pics,
+               picture_list,
+               spec1,
+               spec,
+               std_name,
+               suggested_price,
+               suppliers_id,
+               unit1,
+               unit,
+               upc,
+               mt_class_id
+        from mt_eng
+    </sql>
+
+    <select id="selectMtEngList" parameterType="MtEng" resultMap="MtEngResult">
+        <include refid="selectMtEngVo"/>
+        <where>
+            <if test="approvalCode != null  and approvalCode != ''">and approval_code = #{approvalCode}</if>
+            <if test="approvalNumber1 != null  and approvalNumber1 != ''">and approval_number1 = #{approvalNumber1}</if>
+            <if test="approvalNumberOriginal != null  and approvalNumberOriginal != ''">and approval_number_original =
+                #{approvalNumberOriginal}
+            </if>
+            <if test="approvalNumber != null  and approvalNumber != ''">and approval_number = #{approvalNumber}</if>
+            <if test="brand != null  and brand != ''">and brand = #{brand}</if>
+            <if test="categoryList != null  and categoryList != ''">and category_list = #{categoryList}</if>
+            <if test="categoryNamePath != null  and categoryNamePath != ''">and category_name_path =
+                #{categoryNamePath}
+            </if>
+            <if test="coldChainType != null  and coldChainType != ''">and cold_chain_type = #{coldChainType}</if>
+            <if test="currentPrice != null  and currentPrice != ''">and current_price = #{currentPrice}</if>
+            <if test="dosage != null  and dosage != ''">and dosage = #{dosage}</if>
+            <if test="enabledStatus != null  and enabledStatus != ''">and enabledStatus = #{enabledStatus}</if>
+            <if test="factor != null  and factor != ''">and factor = #{factor}</if>
+            <if test="genericName != null  and genericName != ''">and generic_name like concat('%', #{genericName},
+                '%')
+            </if>
+            <if test="goodsName != null  and goodsName != ''">and goods_name like concat('%', #{goodsName}, '%')</if>
+            <if test="goodsStandardCode != null  and goodsStandardCode != ''">and goods_standard_code =
+                #{goodsStandardCode}
+            </if>
+            <if test="isColdChain != null  and isColdChain != ''">and is_cold_chain = #{isColdChain}</if>
+            <if test="isSale != null  and isSale != ''">and is_sale = #{isSale}</if>
+            <if test="isSp != null  and isSp != ''">and is_sp = #{isSp}</if>
+            <if test="manufaturer1 != null  and manufaturer1 != ''">and manufaturer1 = #{manufaturer1}</if>
+            <if test="manufaturer != null  and manufaturer != ''">and manufaturer = #{manufaturer}</if>
+            <if test="materialName != null  and materialName != ''">and material_name like concat('%', #{materialName},
+                '%')
+            </if>
+            <if test="minUnit != null  and minUnit != ''">and min_unit = #{minUnit}</if>
+            <if test="mtid != null  and mtid != ''">and mtid = #{mtid}</if>
+            <if test="oct != null  and oct != ''">and oct = #{oct}</if>
+            <if test="originalPrice != null  and originalPrice != ''">and original_price = #{originalPrice}</if>
+            <if test="outlookDesc != null  and outlookDesc != ''">and outlook_desc = #{outlookDesc}</if>
+            <if test="outlookNumber != null ">and outlook_number = #{outlookNumber}</if>
+            <if test="outlookUnit != null  and outlookUnit != ''">and outlook_unit = #{outlookUnit}</if>
+            <if test="outlook != null  and outlook != ''">and outlook = #{outlook}</if>
+            <if test="picList != null  and picList != ''">and pic_list = #{picList}</if>
+            <if test="pics != null ">and pics = #{pics}</if>
+            <if test="pictureList != null  and pictureList != ''">and picture_list = #{pictureList}</if>
+            <if test="spec1 != null  and spec1 != ''">and spec1 = #{spec1}</if>
+            <if test="spec != null  and spec != ''">and spec = #{spec}</if>
+            <if test="stdName != null  and stdName != ''">and std_name like concat('%', #{stdName}, '%')</if>
+            <if test="suggestedPrice != null ">and suggested_price = #{suggestedPrice}</if>
+            <if test="suppliersId != null ">and suppliers_id = #{suppliersId}</if>
+            <if test="unit1 != null  and unit1 != ''">and unit1 = #{unit1}</if>
+            <if test="unit != null  and unit != ''">and unit = #{unit}</if>
+            <if test="upc != null  and upc != ''">and upc = #{upc}</if>
+            <if test="mtClassId != null ">and mt_class_id = #{mtClassId}</if>
+        </where>
+    </select>
+
+    <select id="selectMtEngById" parameterType="Long" resultMap="MtEngResult">
+        <include refid="selectMtEngVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMtEng" parameterType="MtEng">
+        insert into mt_eng
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="approvalCode != null">approval_code,</if>
+            <if test="approvalNumber1 != null">approval_number1,</if>
+            <if test="approvalNumberOriginal != null">approval_number_original,</if>
+            <if test="approvalNumber != null">approval_number,</if>
+            <if test="brand != null">brand,</if>
+            <if test="categoryList != null">category_list,</if>
+            <if test="categoryNamePath != null">category_name_path,</if>
+            <if test="coldChainType != null">cold_chain_type,</if>
+            <if test="currentPrice != null">current_price,</if>
+            <if test="dosage != null">dosage,</if>
+            <if test="enabledStatus != null">enabledStatus,</if>
+            <if test="factor != null">factor,</if>
+            <if test="genericName != null">generic_name,</if>
+            <if test="goodsName != null">goods_name,</if>
+            <if test="goodsStandardCode != null">goods_standard_code,</if>
+            <if test="isColdChain != null">is_cold_chain,</if>
+            <if test="isSale != null">is_sale,</if>
+            <if test="isSp != null">is_sp,</if>
+            <if test="manufaturer1 != null">manufaturer1,</if>
+            <if test="manufaturer != null">manufaturer,</if>
+            <if test="materialName != null">material_name,</if>
+            <if test="minUnit != null">min_unit,</if>
+            <if test="mtid != null and mtid != ''">mtid,</if>
+            <if test="oct != null">oct,</if>
+            <if test="originalPrice != null">original_price,</if>
+            <if test="outlookDesc != null">outlook_desc,</if>
+            <if test="outlookNumber != null">outlook_number,</if>
+            <if test="outlookUnit != null">outlook_unit,</if>
+            <if test="outlook != null">outlook,</if>
+            <if test="picList != null">pic_list,</if>
+            <if test="pics != null">pics,</if>
+            <if test="pictureList != null">picture_list,</if>
+            <if test="spec1 != null">spec1,</if>
+            <if test="spec != null">spec,</if>
+            <if test="stdName != null">std_name,</if>
+            <if test="suggestedPrice != null">suggested_price,</if>
+            <if test="suppliersId != null">suppliers_id,</if>
+            <if test="unit1 != null">unit1,</if>
+            <if test="unit != null">unit,</if>
+            <if test="upc != null and upc != ''">upc,</if>
+            <if test="mtClassId != null">mt_class_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="approvalCode != null">#{approvalCode},</if>
+            <if test="approvalNumber1 != null">#{approvalNumber1},</if>
+            <if test="approvalNumberOriginal != null">#{approvalNumberOriginal},</if>
+            <if test="approvalNumber != null">#{approvalNumber},</if>
+            <if test="brand != null">#{brand},</if>
+            <if test="categoryList != null">#{categoryList},</if>
+            <if test="categoryNamePath != null">#{categoryNamePath},</if>
+            <if test="coldChainType != null">#{coldChainType},</if>
+            <if test="currentPrice != null">#{currentPrice},</if>
+            <if test="dosage != null">#{dosage},</if>
+            <if test="enabledStatus != null">#{enabledStatus},</if>
+            <if test="factor != null">#{factor},</if>
+            <if test="genericName != null">#{genericName},</if>
+            <if test="goodsName != null">#{goodsName},</if>
+            <if test="goodsStandardCode != null">#{goodsStandardCode},</if>
+            <if test="isColdChain != null">#{isColdChain},</if>
+            <if test="isSale != null">#{isSale},</if>
+            <if test="isSp != null">#{isSp},</if>
+            <if test="manufaturer1 != null">#{manufaturer1},</if>
+            <if test="manufaturer != null">#{manufaturer},</if>
+            <if test="materialName != null">#{materialName},</if>
+            <if test="minUnit != null">#{minUnit},</if>
+            <if test="mtid != null and mtid != ''">#{mtid},</if>
+            <if test="oct != null">#{oct},</if>
+            <if test="originalPrice != null">#{originalPrice},</if>
+            <if test="outlookDesc != null">#{outlookDesc},</if>
+            <if test="outlookNumber != null">#{outlookNumber},</if>
+            <if test="outlookUnit != null">#{outlookUnit},</if>
+            <if test="outlook != null">#{outlook},</if>
+            <if test="picList != null">#{picList},</if>
+            <if test="pics != null">#{pics},</if>
+            <if test="pictureList != null">#{pictureList},</if>
+            <if test="spec1 != null">#{spec1},</if>
+            <if test="spec != null">#{spec},</if>
+            <if test="stdName != null">#{stdName},</if>
+            <if test="suggestedPrice != null">#{suggestedPrice},</if>
+            <if test="suppliersId != null">#{suppliersId},</if>
+            <if test="unit1 != null">#{unit1},</if>
+            <if test="unit != null">#{unit},</if>
+            <if test="upc != null and upc != ''">#{upc},</if>
+            <if test="mtClassId != null">#{mtClassId},</if>
+        </trim>
+    </insert>
+
+    <update id="updateMtEng" parameterType="MtEng">
+        update mt_eng
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="approvalCode != null">approval_code = #{approvalCode},</if>
+            <if test="approvalNumber1 != null">approval_number1 = #{approvalNumber1},</if>
+            <if test="approvalNumberOriginal != null">approval_number_original = #{approvalNumberOriginal},</if>
+            <if test="approvalNumber != null">approval_number = #{approvalNumber},</if>
+            <if test="brand != null">brand = #{brand},</if>
+            <if test="categoryList != null">category_list = #{categoryList},</if>
+            <if test="categoryNamePath != null">category_name_path = #{categoryNamePath},</if>
+            <if test="coldChainType != null">cold_chain_type = #{coldChainType},</if>
+            <if test="currentPrice != null">current_price = #{currentPrice},</if>
+            <if test="dosage != null">dosage = #{dosage},</if>
+            <if test="enabledStatus != null">enabledStatus = #{enabledStatus},</if>
+            <if test="factor != null">factor = #{factor},</if>
+            <if test="genericName != null">generic_name = #{genericName},</if>
+            <if test="goodsName != null">goods_name = #{goodsName},</if>
+            <if test="goodsStandardCode != null">goods_standard_code = #{goodsStandardCode},</if>
+            <if test="isColdChain != null">is_cold_chain = #{isColdChain},</if>
+            <if test="isSale != null">is_sale = #{isSale},</if>
+            <if test="isSp != null">is_sp = #{isSp},</if>
+            <if test="manufaturer1 != null">manufaturer1 = #{manufaturer1},</if>
+            <if test="manufaturer != null">manufaturer = #{manufaturer},</if>
+            <if test="materialName != null">material_name = #{materialName},</if>
+            <if test="minUnit != null">min_unit = #{minUnit},</if>
+            <if test="mtid != null and mtid != ''">mtid = #{mtid},</if>
+            <if test="oct != null">oct = #{oct},</if>
+            <if test="originalPrice != null">original_price = #{originalPrice},</if>
+            <if test="outlookDesc != null">outlook_desc = #{outlookDesc},</if>
+            <if test="outlookNumber != null">outlook_number = #{outlookNumber},</if>
+            <if test="outlookUnit != null">outlook_unit = #{outlookUnit},</if>
+            <if test="outlook != null">outlook = #{outlook},</if>
+            <if test="picList != null">pic_list = #{picList},</if>
+            <if test="pics != null">pics = #{pics},</if>
+            <if test="pictureList != null">picture_list = #{pictureList},</if>
+            <if test="spec1 != null">spec1 = #{spec1},</if>
+            <if test="spec != null">spec = #{spec},</if>
+            <if test="stdName != null">std_name = #{stdName},</if>
+            <if test="suggestedPrice != null">suggested_price = #{suggestedPrice},</if>
+            <if test="suppliersId != null">suppliers_id = #{suppliersId},</if>
+            <if test="unit1 != null">unit1 = #{unit1},</if>
+            <if test="unit != null">unit = #{unit},</if>
+            <if test="upc != null and upc != ''">upc = #{upc},</if>
+            <if test="mtClassId != null">mt_class_id = #{mtClassId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMtEngById" parameterType="Long">
+        delete
+        from mt_eng
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMtEngByIds" parameterType="String">
+        delete from mt_eng where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
